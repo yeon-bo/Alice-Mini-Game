@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import { GameModal, GridContainer } from "./index";
-import {
-  BOARD_SIZE,
-  WIN_NUMBER,
-  MAX_NUMBER,
-  BEST_SCORE_KEY,
-} from "../constants";
+import { BOARD_SIZE, WIN_NUMBER, MAX_NUMBER } from "../constants";
 import TileContainer from "./TileContainer";
 import { getDirection, getPosition } from "../utils/touchEvent";
 import {
@@ -26,13 +21,7 @@ function getMaxNumber(numbers) {
     numbers.map((tile) => tile.number || 0)
   );
 }
-export default function GameBoard({
-  score,
-  setScore,
-  setBestScore,
-  reset,
-  setReset,
-}) {
+export default function GameBoard({ score, setScore }) {
   const [gameModal, setGameModal] = useState(null);
   const [numbers, setNumbers] = useState(defaultArray);
   const [prevPosition, setPrevPosition] = useState({});
@@ -81,11 +70,6 @@ export default function GameBoard({
   }, [slideTiles]);
 
   useEffect(() => {
-    const storedBestScore = localStorage.getItem(BEST_SCORE_KEY);
-    if (storedBestScore) setBestScore(storedBestScore);
-  }, []);
-
-  useEffect(() => {
     const { maxNumber, isBoardFull, isCombinable } = getGameState();
     if (!isCombinable && isBoardFull) {
       setGameState(0);
@@ -113,43 +97,22 @@ export default function GameBoard({
 
   useEffect(() => {
     setInitTile();
-  }, [reset]);
+  }, []);
 
   function setGameState(gameState) {
     if (gameState !== 1) {
       let message = "You Win!";
-      let button = (
-        <button className="btn-continue" onClick={() => setGameModal(null)}>
-          Continue
-        </button>
-      );
       switch (gameState) {
         case 0:
           message = "Game Over!";
-          button = (
-            <button
-              className="btn-lose"
-              onClick={() => setReset((reset) => !reset)}
-            >
-              Try again
-            </button>
-          );
           break;
         case 8192:
           message = "You Win!";
-          button = (
-            <button
-              className="btn-new-game"
-              onClick={() => setReset((reset) => !reset)}
-            >
-              New Game
-            </button>
-          );
           break;
         default:
           break;
       }
-      setGameModal({ message, button });
+      setGameModal({ message });
     } else setGameModal(null);
   }
 
@@ -225,7 +188,7 @@ const Container = styled.section`
   flex-direction: row;
   flex-wrap: wrap;
   border-radius: 10px;
-  background-color: #8796ce;
+  background-color: #372c25;
   padding: var(--default_tile_margin);
   position: relative;
   overflow: hidden;

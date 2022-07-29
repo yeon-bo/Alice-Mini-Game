@@ -35,5 +35,5 @@ const GridWrap = styled.div`
 `;
 
 const GridCell = styled(Cell)`
-  background-color: #d9e1ff;
+  background-color: #fbeddc;
 `;

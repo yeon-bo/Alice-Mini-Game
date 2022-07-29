@@ -33,38 +33,30 @@ const TileWrap = styled.div`
 `;
 
 const colors = {
-  2: { background: "#F4EEFF", color: "#9186c6" },
-  4: { background: "#ccc3f4", color: "#4a3e80" },
-  8: { background: "#A6B1E1", color: "white" },
-  16: { background: "#424874", color: "white" },
-  32: { background: "#ffffff", color: "#7582c0" },
-  64: { background: "#141E61", color: "white" },
-  128: { background: "#221e39", color: "white" },
-  256: { background: "#5472de", color: "white" },
-  512: { background: "#2e469e", color: "white" },
+  2: { background: "#fbeddc", color: "#684a23" },
+  4: { background: "#f9e2c7", color: "#684a23" },
+  8: { background: "#f6d5ab", color: "#684a23" },
+  16: { background: "#f2c185", color: "#684a23" },
+  32: { background: "#efb46d", color: "#684a23" },
+  64: { background: "#eba24a", color: "#ffffff" },
+  128: { background: "#e78f28", color: "#ffffff" },
+  256: { background: "#e85532", color: "#ffffff" },
+  512: { background: "#e25532", color: "#ffffff" },
   1024: {
-    background: "#e9406d",
-    color: "white",
-    boxShadow:
-      "0 0 30px 4px rgb(243 116 163 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)",
+    background: "#e84532",
+    color: "#ffffff",
   },
   2048: {
-    background: "#ffcf62",
-    color: "white",
-    boxShadow:
-      "0 0 30px 6px rgb(243 215 116 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)",
+    background: "#e83232",
+    color: "#ffffff",
   },
   4096: {
-    background: "#7de6dc",
-    color: "white",
-    boxShadow:
-      "0 0 30px 6px rgb(125 230 220 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)",
+    background: "#e51a1a",
+    color: "#ffffff",
   },
   8192: {
     background: "linear-gradient(45deg, rgb(252, 70, 107), rgb(63, 94, 251))",
-    color: "white",
-    boxShadow:
-      "0 0 30px 10px rgb(255 255 255 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)",
+    color: "#ffffff",
   },
 };
 
@@ -75,7 +67,6 @@ const Tile = styled(Cell).attrs(({ tile }) => {
       style: {
         background: colors[number].background,
         color: colors[number].color,
-        boxShadow: colors[number].boxShadow || "none",
       },
     };
   }

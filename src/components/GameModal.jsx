@@ -43,17 +43,5 @@ const ButtonWrap = styled.div`
     font-size: 1.2rem;
     font-weight: bold;
     margin-top: 2rem;
-    &.btn-continue {
-      background-color: #ffcf62;
-    }
-    &.btn-lose {
-      background-color: #8b85bb;
-    }
-    &.btn-new-game {
-      background-color: #e9406d;
-    }
-    :hover {
-      opacity: 0.8;
-    }
   }
 `;
